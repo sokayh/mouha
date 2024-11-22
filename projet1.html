@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/styles/projet1.css">
+    <title>Portfolio Website</title>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Moûha <span id="utahmer">Ötahmer</span></a>
+        <nav>
+            <a href="index.html"> Home</a>
+            <a href="#skills" >Skills</a>
+            <a id="educ_navbar" href="#education" >Education</a>
+            <a href="#projets" class="active">Projet</a>
+            <a href="#" >Contact</a> 
+            <a href="#" class="Menu"><span id="Menu"></span><i class="fa-solid fa-bars"></i></a>
+        </nav>
+    </header>
+    <section id="projet-detail">
+        <div class="wrapper">
+            <h1 class="heading">EloMentorat</h1>
+            <p class="project-description">
+                EloMentorat est une plateforme de mentorat en ligne conçue pour connecter des étudiants à des mentors qualifiés dans divers domaines. 
+                L'application permet des sessions de questions/réponses en temps réel, la planification de rendez-vous, et des outils interactifs pour maximiser 
+                l'apprentissage.
+            </p>
+
+            <div class="projet-content">
+
+                <div class="features">
+                    <h2>Fonctionnalités principales :</h2>
+                    <ul>
+                        <li>**Connexion en temps réel** avec des mentors via une messagerie instantanée ou des appels vidéo.</li>
+                        <li>**Planification d'événements** : Réservez des sessions avec des notifications automatiques.</li>
+                        <li>**Tableau de bord utilisateur** pour suivre votre progression et vos interactions.</li>
+                    </ul>
+        
+                    <h2>Technologies utilisées :</h2>
+                    <ul>
+                        <li><strong>Frontend :</strong> React.js, HTML5, CSS3</li>
+                        <li><strong>Backend :</strong> Node.js, Express.js</li>
+                        <li><strong>Base de données :</strong> MongoDB</li>
+                        <li><strong>API tierces :</strong> WebRTC pour les appels vidéo</li>
+                    </ul>
+                    <h2>Défis rencontrés :</h2>
+                    <p>
+                        L'implémentation de la communication en temps réel avec une faible latence a nécessité une optimisation importante 
+                        à l'aide de **WebSockets**. De plus, garantir une expérience fluide sur mobile a impliqué une refonte de plusieurs 
+                        éléments de l'interface.
+                    </p>
+
+                    <h2>Résultats obtenus :</h2>
+                    <p>
+                        - Plus de 2 000 utilisateurs actifs lors du premier mois.<br>
+                        - Évaluations positives des utilisateurs, avec une note moyenne de 4,8/5.<br>
+                        - Une collaboration avec 150 mentors certifiés.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>

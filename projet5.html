@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/styles/projet1.css">
+    <title>Portfolio Website</title>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Moûha <span id="utahmer">Ötahmer</span></a>
+        <nav>
+            <a href="index.html"> Home</a>
+            <a href="#skills" >Skills</a>
+            <a id="educ_navbar" href="#education" >Education</a>
+            <a href="#projets" class="active">Projet</a>
+            <a href="#" >Contact</a> 
+            <a href="#" class="Menu"><span id="Menu"></span><i class="fa-solid fa-bars"></i></a>
+        </nav>
+    </header>
+    <section id="projet-detail">
+        <div class="wrapper">
+            <h1 class="heading">EventSphere</h1>
+            <p class="project-description">
+                EventSphere est une plateforme de gestion d'événements conçue pour les particuliers et les entreprises, intégrant des fonctionnalités de billetterie, de réservation et de diffusion en direct. L'application simplifie l'organisation et la participation aux événements tout en offrant une expérience utilisateur fluide et efficace.
+            </p>
+
+            <div class="projet-content">
+                <div class="features">
+                    <h2>Fonctionnalités principales :</h2>
+                    <ul>
+                        <li>Gestion de billetterie : Créez, personnalisez et gérez des billets électroniques pour vos événements.</li>
+                        <li>Réservations simplifiées : Gérez les inscriptions et les places disponibles avec des mises à jour en temps réel.</li>
+                        <li>Diffusion en direct : Intégrez des vidéos live pour atteindre un public plus large directement via la plateforme.</li>
+                    </ul>
+        
+                    <h2>Technologies utilisées :</h2>
+                    <ul>
+                        <li><strong>Frontend :</strong> React.js, HTML5, CSS3</li>
+                        <li><strong>Backend :</strong> Node.js, Express.js</li>
+                        <li><strong>Base de données :</strong> MongoDB</li>
+                        <li><strong>API tierces :</strong> WebRTC pour les diffusions en direct et Stripe pour la gestion des paiements</li>
+                    </ul>
+                    <h2>Défis rencontrés :</h2>
+                    <p>
+                        Garantir une diffusion en direct stable et synchronisée pour les événements en ligne a exigé une optimisation avancée avec WebSockets et CDN pour une faible latence. De plus, l’intégration de la gestion des paiements a nécessité une attention particulière pour la conformité aux normes de sécurité (PCI-DSS).
+                    </p>
+
+                    <h2>Résultats obtenus :</h2>
+                    <p>
+                        - Plus de 5 000 utilisateurs inscrits au cours des trois premiers mois.<br>
+                        - Avis positifs avec une note moyenne de 4,7/5 sur l’expérience utilisateur.<br>
+                        - Collaboration avec plus de 200 organisateurs d'événements, incluant des entreprises et des associations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
