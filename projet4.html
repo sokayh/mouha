@@ -11,13 +11,13 @@
 <body>
     <header>
         <a href="index.html" class="logo">Moûha <span id="utahmer">Ötahmer</span></a>
-        <nav>
-            <a href="index.html"> Home</a>
-            <a href="#skills" >Skills</a>
-            <a id="educ_navbar" href="#education" >Education</a>
-            <a href="#projets" class="active">Projet</a>
+        <button class="Menu" onclick="toggleMenu()"><i class="fa-solid fa-bars" style="font-size: 40px;"></i></button>
+        <nav class="nav">
+            <a href="index.html" class="active"> Home</a>
+            <a href="index.html#skills" >Skills</a>
+            <a id="educ_navbar" href="index.html#education">Education</a>
+            <a href="index.html#projets" >Projet</a>
             <a href="contact.html" >Contact</a> 
-            <a href="#" class="Menu"><span id="Menu"></span><i class="fa-solid fa-bars"></i></a>
         </nav>
     </header>
     <section id="projet-detail">
@@ -58,3 +58,6 @@
             </div>
         </div>
     </section>
+</body>
+<script src="/scripts/Mouha.js"></script>
+</html>

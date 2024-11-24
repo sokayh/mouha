@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -11,16 +12,16 @@
 <body>
     <header>
         <a href="#" class="logo">Moûha <span id="utahmer">Ötahmer</span></a>
-        <nav>
-            <a href="index.html" class="active"> Home</a>
-            <a href="#skills" >Skills</a>
+        <button class="Menu" onclick="toggleMenu()"><i class="fa-solid fa-bars" style="font-size: 40px;"></i></button>
+        <nav class="nav">
+            <a id="home_navbar" href="#home"> Home</a>
+            <a id="skil_navbar" href="#skills" >Skills</a>
             <a id="educ_navbar" href="#education" >Education</a>
-            <a href="#projets" >Projet</a>
-            <a href="contact.html" >Contact</a> 
-            <a href="#" class="Menu"><span id="Menu"></span><i class="fa-solid fa-bars"></i></a>
+            <a id="proj_navbar" href="#projets" >Projet</a>
+            <a id="cont_navbar" href="contact.html" >Contact</a> 
         </nav>
     </header>
-    <section class="home">
+    <section class="home" id="home">
         <div class="home-img">
             <img src="assets/images/main.jpg" alt="">
         </div>
@@ -35,42 +36,36 @@
                 <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
                 <a href="#"><i class="fa-brands fa-instagram"></i></a>
             </div>
-            <a href="#education" class="btn">Embauchez moi pitié</a>
+            <a href="#skills" class="btn">Embauchez moi pitié</a>
         </div>
     </section>
     <div id="grad1"></div>
     <section class="skills" id="skills">
         <!-- HARD SKILLS -->
         <h1 class="heading">Hard Skills</h1>
-
-
         <div class="skills-content" id ="test">
             <div class="skills-box">
                 <div class="skills-box-info">
-                    <h1><p>Front-end</p></h1>
-                    <h3>Langages : HTML5, CSS3, JavaScript, PHP, MySQL
-                        Frameworks : React.js, Vue.js, Angular, HUGO
-                        <p>Outils : Webpack, Babel, npm/yarn
-                        <p>Design responsif (utilisation de Flexbox, Grid, ou frameworks comme Bootstrap/TailwindCSS)</h3>
+                    <h1><p>Programming</p></h1><br> 
+                    <h3>
+                        JavaScript, Java, Bash, PHP, CSS, HTML, Yaml, Toml
+                    </h3>
                 </div>
             </div>
             <div class="skills-box">
                 <div class="skills-box-info">
-                    <h1><p>Back-end</p></h1>
-                    <h3>Langages : JavaScript (Node.js), Python (Django/Flask), Ruby (Rails), PHP
-                        Frameworks : Express.js (Node.js), Django/Flask (Python)
-                        Gestion des bases de données : SQL (PostgreSQL, MySQL) ou NoSQL (MongoDB)
-                        API : REST ou GraphQL
-                        Authentification : JWT, OAuth, sessions</h3>
+                    <h1><p>Databases & Cloud Services</p></h1><br>
+                    <h3>
+                        MySQL, PostgreSQL, MongoDB, Redis, Oracle WebLogic, GCP
+                    </h3>
                 </div>
             </div>
             <div class="skills-box">
                 <div class="skills-box-info">
-                    <h1><p>DevOps et déploiement</p></h1>
-                    <h3> Conteneurisation avec Docker.
-                         Gestion des versions avec Git/GitHub.
-                         Déploiement sur des services cloud (AWS, Heroku, Netlify, DigitalOcean)
-                        CI/CD avec GitHub Actions, Jenkins, ou GitLab CI. </h3>
+                    <h1><p>Tools</p></h1><br>
+                    <h3>  
+                        Packer, Docker, Kubernetes, Ansible, Puppet
+                    </h3>
                 </div>
             </div>
         </div> 
@@ -122,8 +117,7 @@
                     <div class="timeline-content">
             <h3>Licence en Informatique </n> Massachusetts Institute of Technology (MIT)</h3>
             <p>
-                Formation axée sur les algorithmes, la programmation (Python, Java, C++), les bases de données relationnelles (SQL) et le développement web (HTML, CSS, JavaScript). <p> Il a également découvert les bases de l’intelligence artificielle et acquis des compétences en résolution de problèmes complexes.
-            </p>
+                Formation axée sur les algorithmes, la programmation (Python, Java, C++), les bases de données relationnelles (SQL) et le développement web (HTML, CSS, JavaScript).
                     </div>
                 
             </div>
@@ -136,7 +130,7 @@
         <h3>Master en Informatique </n> 
             - Stanford University</h3>
         <p>
-            Expertise en développement full stack : technologies back-end (Node.js, Django) et front-end (React, Vue.js). Maîtrise des systèmes distribués, des applications scalables et des outils DevOps (Docker, Kubernetes). Compétences avancées en sécurité informatique et cryptographie.
+            Expertise en développement full stack : technologies back-end (Node.js, Django) et front-end (React, Vue.js). Maîtrise des systèmes distribués, des applications scalables et des outils DevOps (Docker, Kubernetes).
         </p>
                 </div>
             
@@ -144,7 +138,7 @@
 
         <div class="timeline-item">
             <div class="timeline-dot"></div>
-                <div class="timeline-date">2022-2024</div>
+                <div class="timeline-date">2022</div>
                 <div class="timeline-content">
         <h3>Certification <br> 'Certified Kubernetes Administrator'</h3>
         <p>
@@ -166,10 +160,10 @@
             <div class="wrapper">
                 <a href="projet1.html">
                     <div class="project-box-content">
-                        <img src="assets/images/projet1.jpg">
+                        <img src="assets/images/elo.jpg">
                         <h2>EloMentorat</h2>
                         <p>
-                            EloMentorat est une plateforme de mentorat en ligne conçue pour connecter des étudiants à des mentors qualifiés dans divers domaines. L'application permet des sessions de questions/réponses en temps réel, la planification de rendez-vous, et des outils interactifs pour maximiser l'apprentissage.                         </p>
+                            EloMentorat est une plateforme de mentorat en ligne conçue pour connecter des étudiants à des mentors qualifiés dans divers domaines.</p>
                     </div>
                 </a>
                 <a href="projet2.html">
@@ -211,6 +205,7 @@
         </div>
 </section>
 </body>
+<script src="scripts/Mouha.js"></script>
 </html>
 
 

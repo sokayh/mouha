@@ -24,11 +24,8 @@ body{
 
 header{
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     padding: 2% 9%;
-    background-color: transparent;
     filter: drop-shadow(10px);
     display: flex;
     justify-content: space-between;
@@ -39,6 +36,7 @@ header{
 
 .Menu{
     display: none;
+    cursor: pointer;
 }
 
 .logo{
@@ -66,39 +64,6 @@ nav a:hover,
 nav a.active{
     color: #576CA8;
     border-bottom: 3px solid #576CA8;
-}
-
-@media(max-width:995px){
-    nav{
-        position: absolute;
-        display: none;
-        top: 0;
-        right: 0;
-        width: 40%;
-        border-left: 3px solid #576CA8;
-        border-bottom: 3px solid #576CA8;
-        border-bottom-left-radius: 2rem;
-        padding: 1rem solid;
-        background-color: #161616;
-        border-top: 0.1rem solid rgba(0,0,0,0.1);
-    }
-
-    nav.active{
-        display: block;
-    }
-
-    nav a{
-        display: block;
-        font-size: 2rem;
-        margin: 3rem 0;
-    }
-
-    nav a:hover,
-    nav a.active{
-        padding: 1rem;
-        border-radius: 0.5rem;
-        border-bottom: 0.5rem solid white;
-    }
 }
 
 section{
@@ -237,20 +202,14 @@ section{
 }
 
 @keyframes words{
-    0%, 20%{
-        content: "Dev Web";
+    0%, 33%{
+        content: "DevWeb";
     }
-    21%, 40%{
-        content: "DevOps";
+    34%, 66%{
+        content: "DevSecOps";
     }
-    41%, 60%{
+    67%, 100%{
         content: "Pentester";
-    }
-    61%, 80%{
-        content: "Hacker éthique";
-    }
-    81%, 100%{
-        content: "Blue teamer";
     }
 }
 
@@ -290,10 +249,10 @@ section{
 }
 
 .skills-box-info {
-    margin-bottom: 5rem;
     color: white;
     text-align: center;
     justify-content: center;
+    align-items: center;
 }
 
 .skills-box {
@@ -310,6 +269,7 @@ section{
     width: 100%;
     height: 100%;
     align-items: center;
+    justify-content: flex-end;
     
 }
 
@@ -324,7 +284,7 @@ section{
 
 .education {
     background-color:#233C7A;
-    padding: 100px 15px 25px 15px;
+    padding: 5rem 9% 5rem 9%;
 }
 
 
@@ -335,8 +295,8 @@ section{
 
 .education h1{
     margin-top: 0;
-    margin-bottom: 100px;
-
+    margin-bottom: 45px;
+    padding-top: 70px;
 }
 
 
@@ -424,7 +384,6 @@ section{
     color: antiquewhite;
     font-size: 16px;
     font-weight: 300;
-    line-height: 22px;
 }
 
 ::-webkit-scrollbar{
@@ -464,6 +423,7 @@ section{
 #projets h1{
     background-color: #2C497F;
     margin-bottom: 75px;
+    padding-top: 30px;
 }
 
 .project-box{
@@ -474,8 +434,7 @@ section{
 } 
 
 .project-box img{
-    width: 15rem;
-    border-radius: 50%;
+    width: 28rem;
     border: 3px solid #7f8caf;
     box-shadow: 0 0 30px #576CA8;
 }
@@ -520,14 +479,63 @@ section{
 
 /*Responsive*/
 
+@media (max-width: 1270px){
+    .home-content h1 {
+        font-size: 4rem !important;
+    }
+    .home-content h3 {
+        font-size: 3rem;
+    }
+}
+
 @media (max-width: 995px) {
-    .home {
-        gap: 4rem;
+    .Menu {
+        display: block;
+        cursor: pointer;
+        font-size: 2rem;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: #131b3b;
+        color: white;
+        
     }
 
-    .header {
-        display: inline-block;
+    nav{
+        position: absolute;
+        display: none;
+        top: 0;
+        right: 0;
+        width: 40%;
+        border-left: 3px solid grey;
+        border-bottom: 3px solid grey;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem solid;
+        background-color: #131b3b;
+        border-top: 0.1rem solid rgba(0,0,0,0.1);
     }
+
+    nav.active{
+        display: block;
+    }
+
+    nav a{
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    nav a:hover,
+    nav a.active{
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid white;
+    }
+
+    .skills-content {
+        grid-template-columns: repeat(1, 1fr);
+    }
+ 
 }
 
 @media (max-width: 800px) {
@@ -624,6 +632,35 @@ section{
     .element {
         width: 105%;
     }
+} 
+
+/* RESPONSIVE .education */
+
+@media (max-width: 920px) {
+    .timeline-content {
+            padding: 15px 25px;  
+    }
+    .timeline-content h3, .timeline-content p {
+        font-size: small;
+
+    }
 }
 
+@media (max-width: 590px) {
+    .timeline-content {
+            padding: 10px 20px;  
+    }
+    .timeline-content h3, .timeline-content p {
+        font-size: smaller;
 
+    }
+}
+
+@media (max-width: 700px) {
+    .project-box-content img {
+        width: 20rem;
+    }
+    .project-box-content {
+        padding: 15px 45px;
+    }
+}
