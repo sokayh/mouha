@@ -1,4 +1,8 @@
-
+<?php
+require_once(__DIR__ . '/config/mysql.php');
+require_once(__DIR__ . '/databaseconnect.php');
+require_once(__DIR__ . '/variables.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -18,7 +22,7 @@
             <a id="skil_navbar" href="#skills" >Skills</a>
             <a id="educ_navbar" href="#education" >Education</a>
             <a id="proj_navbar" href="#projets" >Projet</a>
-            <a id="cont_navbar" href="contact.html" >Contact</a> 
+            <a id="cont_navbar" href="contact.php" >Contact</a> 
         </nav>
     </header>
     <section class="home" id="home">
@@ -30,6 +34,7 @@
             <h3 class="typing-text">Je suis un <span></span></h3>
             <p>Je suis un jeune développeur web full stack. Passionné par la cybersécurité depuis mon plus jeune âge,  j’ai d’abord débuté avec le pentest et le reverse engineering. Mes connaissances en backend et en frontend sont tellement grandes, qu’aucune faille dans le code ne m’échappe.
             </p>
+
             <div class="social-icons">
                 <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="#"><i class="fa-brands fa-github"></i></a>
@@ -155,10 +160,8 @@
 <section class="projets" id="projets">
         <h1 class="heading">Projets</h1>
         <div class="project-box">
-            
-
             <div class="wrapper">
-                <a href="projet1.html">
+                <a href="projet1.php">
                     <div class="project-box-content">
                         <img src="assets/images/elo.jpg">
                         <h2>EloMentorat</h2>
@@ -166,7 +169,7 @@
                             EloMentorat est une plateforme de mentorat en ligne conçue pour connecter des étudiants à des mentors qualifiés dans divers domaines.</p>
                     </div>
                 </a>
-                <a href="projet2.html">
+                <a href="projet2.php">
                     <div class="project-box-content">
                         <img src="assets/images/projet2.jpg">
                         <h2>LearnBuddy</h2>
@@ -175,7 +178,7 @@
                         </p> 
                     </div>
                 </a>
-                <a href="projet3.html">
+                <a href="projet3.php">
                     <div class="project-box-content">
                         <img src="assets/images/projet3.jpg">
                         <h2>MyFitPlanner</h2>
@@ -184,7 +187,7 @@
                         </p> 
                     </div>
                 </a>
-                <a href="projet4.html">
+                <a href="projet4.php">
                     <div class="project-box-content">
                         <img src="assets/images/projet4.jpg">
                         <h2>CodeSync</h2>
@@ -193,7 +196,7 @@
                         </p> 
                     </div>
                 </a>
-                <a href="projet5.html">
+                <a href="projet5.php">
                     <div class="project-box-content">
                         <img src="assets/images/projet5.jpg">
                         <h2>EventSphere</h2>

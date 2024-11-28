@@ -1,3 +1,8 @@
+<?php
+require_once(__DIR__ . '/config/mysql.php');
+require_once(__DIR__ . '/databaseconnect.php');
+require_once(__DIR__ . '/variables.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -10,24 +15,21 @@
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">Moûha <span id="utahmer">Ötahmer</span></a>
+        <a href="index.php" class="logo">Moûha <span id="utahmer">Ötahmer</span></a>
         <button class="Menu" onclick="toggleMenu()"><i class="fa-solid fa-bars" style="font-size: 40px;"></i></button>
         <nav class="nav">
-            <a href="index.html" class="active"> Home</a>
-            <a href="index.html#skills" >Skills</a>
-            <a id="educ_navbar" href="index.html#education">Education</a>
-            <a href="index.html#projets" >Projet</a>
-            <a href="contact.html" >Contact</a> 
+            <a href="index.php" class="active"> Home</a>
+            <a href="index.php#skills" >Skills</a>
+            <a id="educ_navbar" href="index.php#education">Education</a>
+            <a href="index.php#projets" >Projet</a>
+            <a href="contact.php" >Contact</a> 
         </nav>
     </header>
     <section id="projet-detail">
         <div class="wrapper">
-            <h1 class="heading">EloMentorat</h1>
-            <p class="project-description">
-                EloMentorat est une plateforme de mentorat en ligne conçue pour connecter des étudiants à des mentors qualifiés dans divers domaines. 
-                L'application permet des sessions de questions/réponses en temps réel, la planification de rendez-vous, et des outils interactifs pour maximiser 
-                l'apprentissage.
-            </p>
+        <?php echo "img src="; ?>
+            <h1 class="heading"><?php echo $projects[0]['name']; ?></h1>
+            <p class="project-description"><?php echo $projects[0]['description']; ?></p>
 
             <div class="projet-content">
 
@@ -41,13 +43,11 @@
         
                     <h2>Technologies utilisées :</h2>
                     <ul>
-                        <li><strong>Frontend :</strong> React.js, HTML5, CSS3</li>
-                        <li><strong>Backend :</strong> Node.js, Express.js</li>
-                        <li><strong>Base de données :</strong> MongoDB</li>
-                        <li><strong>API tierces :</strong> WebRTC pour les appels vidéo</li>
+                        <?php foreach ($technologies[0] as $technology): ?>
+                            <li><?php echo $technology; ?></li>
+                        <?php endforeach; ?>
                     </ul>
-                    <h2>Défis rencontrés :</h2>
-                    <p>
+                    <ul>
                         L'implémentation de la communication en temps réel avec une faible latence a nécessité une optimisation importante 
                         à l'aide de **WebSockets**. De plus, garantir une expérience fluide sur mobile a impliqué une refonte de plusieurs 
                         éléments de l'interface.

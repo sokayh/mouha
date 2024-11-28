@@ -1,3 +1,8 @@
+<?php
+require_once(__DIR__ . '/config/mysql.php');
+require_once(__DIR__ . '/databaseconnect.php');
+require_once(__DIR__ . '/variables.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
     
@@ -10,22 +15,20 @@
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">Moûha <span id="utahmer">Ötahmer</span></a>
+        <a href="index.php" class="logo">Moûha <span id="utahmer">Ötahmer</span></a>
         <button class="Menu" onclick="toggleMenu()"><i class="fa-solid fa-bars" style="font-size: 40px;"></i></button>
         <nav class="nav">
-            <a href="index.html" class="active"> Home</a>
-            <a href="index.html#skills" >Skills</a>
-            <a id="educ_navbar" href="index.html#education">Education</a>
-            <a href="index.html#projets" >Projet</a>
-            <a href="contact.html" >Contact</a> 
+            <a href="index.php" class="active"> Home</a>
+            <a href="index.php#skills" >Skills</a>
+            <a id="educ_navbar" href="index.php#education">Education</a>
+            <a href="index.php#projets" >Projet</a>
+            <a href="contact.php" >Contact</a> 
         </nav>
     </header>
     <section id="projet-detail">
         <div class="wrapper">
-            <h1 class="heading">MyFitPlanner</h1>
-            <p class="project-description">
-                MyFitPlanner est un planificateur de fitness interactif permettant aux utilisateurs de créer des programmes d'entraînement personnalisés et de suivre leur progression quotidienne. L'application aide les utilisateurs à atteindre leurs objectifs de fitness de manière structurée et motivante, en offrant une expérience conviviale et complète.
-            </p>
+            <h1 class="heading"><?php echo $projects[2]['name'];?></h1>
+                <p class="project-description"><?php echo $projects[2]['description']; ?></p>
 
             <div class="projet-content">
                 <div class="features">
@@ -38,10 +41,9 @@
         
                     <h2>Technologies utilisées :</h2>
                     <ul>
-                        <li><strong>Frontend :</strong> React.js, HTML5, CSS3</li>
-                        <li><strong>Backend :</strong> Node.js, Express.js</li>
-                        <li><strong>Base de données :</strong> MongoDB</li>
-                        <li><strong>API tierces :</strong> Integration de services de suivi de santé comme Google Fit et Apple Health</li>
+                        <?php foreach ($technologies[2] as $technology): ?>
+                            <li><?php echo $technology; ?></li>
+                        <?php endforeach; ?>
                     </ul>
                     <h2>Défis rencontrés :</h2>
                     <p>
