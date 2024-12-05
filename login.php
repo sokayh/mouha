@@ -8,6 +8,15 @@ require_once(__DIR__ . '/variables.php'); // Optional: additional variables
 $error = "";
 $success = "";
 
+
+// If logout is requested
+if (isset($_GET['logout'])) {
+    session_unset(); // Remove all session variables
+    session_destroy(); // Destroy the session
+    header("Location: login.php"); // Redirect to login page
+    exit;
+}
+
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve and sanitize user input
@@ -38,10 +47,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['auth'] = true; // Mark the user as authenticated
                     $_SESSION['login'] = $user['login']; // Store login in session
                     $_SESSION['prenom'] = $user['prenom']; // Store the first name in session
+                    $_SESSION['nom'] = $user['nom']; // Store the last name in session
                     $_SESSION['user_id'] = $user['id']; // Store user ID in session
+                    $_SESSION['password'] = $hashedPasswo; // Store the password in session for leak check
 
-                    // Redirect to index.php with user ID in the URL
-                    header("Location: index.php?user_id=" . $user['id']);
+
+                    // Redirect to the same page to show user details
+                    header("Location: index.php");
                     exit;
                 } else {
                     $error = "Mot de passe incorrect.";
@@ -54,6 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -66,31 +79,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Login</title>
 </head>
 <body class="cacaca">
-    <!-- Display error or success messages -->
-    <?php if (!empty($error)): ?>
-        <div style="color: red;"><?= $error ?></div>
-    <?php endif; ?>
+    <?php if (isset($_SESSION['auth']) && $_SESSION['auth']): ?>
+        <!-- User Details -->
+        <section id="user-details" >
+            <h1>Bienvenue, <?= htmlspecialchars($_SESSION['prenom'] . ' ' . $_SESSION['nom']) ?>!</h1>
+            <p><strong>Login:</strong> <?= htmlspecialchars($_SESSION['login']) ?></p>
+            <p><strong>ID:</strong> <?= htmlspecialchars($_SESSION['user_id']) ?></p>
+            <a href="?logout=true" class="btn logout">Déconnexion</a>
+            <a href="index.php" class="btn logout">Visiter le Portfolio</a>
+        </section>
+    <?php else: ?>
+        <!-- Display error or success messages -->
+        <?php if (!empty($error)): ?>
+            <div style="color: red;"><?= $error ?></div>
+        <?php endif; ?>
 
-    <?php if (!empty($success)): ?>
-        <div style="color: green;"><?= $success ?></div>
-    <?php endif; ?>
+        <?php if (!empty($success)): ?>
+            <div style="color: green;"><?= $success ?></div>
+        <?php endif; ?>
 
-    <!-- Login Form -->
-<section id="signup">
-<h1 id="title1" class="auth">Log In</h1>
-    <form class="auth1" action="" method="POST">
-        <div>
-            <label for="login" class="form-label">Username</label>
-            <input type="text" class="form-control" name="login" id="login" placeholder="momo" required>
-        </div>
-        <div>
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" name="password" id="password" placeholder="momo123" required>
-        </div>
-        <button type="submit" class="btn">Submit</button>
-        <a id="redirect1" class="home" href="signup.php">I don't have an account</a>
-    </form>
-    
-</section>
+        <!-- Login Form -->
+        <section id="signup">
+            <h1 id="title1" class="auth">Log In</h1>
+            <form class="auth1" action="" method="POST">
+                <div>
+                    <label for="login" class="form-label">Username</label>
+                    <input type="text" class="form-control" name="login" id="login" placeholder="momo" required>
+                </div>
+                <div>
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="momo123" required>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+                <a id="redirect1" class="home" href="signup.php">I don't have an account</a>
+            </form>
+        </section>
+    <?php endif; ?>
 </body>
 </html>

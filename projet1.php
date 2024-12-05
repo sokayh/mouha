@@ -33,6 +33,7 @@ if (!$_SESSION['auth']) {
             <a id="educ_navbar" href="index.php#education">Education</a>
             <a href="index.php#projets" >Projet</a>
             <a href="contact.php" >Contact</a> 
+            <a id="cont_navbar" href="login.php" >My Profile</a>
         </nav>
     </header>
     <section id="projet-detail">

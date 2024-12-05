@@ -34,7 +34,7 @@ if (!$_SESSION['auth']) {
             <a id="educ_navbar" href="#education" >Education</a>
             <a id="proj_navbar" href="#projets" >Projet</a>
             <a id="cont_navbar" href="contact.php" >Contact</a> 
-            <a id="cont_navbar" href="login.php" >Login</a>
+            <a id="cont_navbar" href="login.php" >My Profile</a>
         </nav>
     </header>
     <?php 

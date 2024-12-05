@@ -735,3 +735,16 @@ section#signup{
 .cacaca{
     background-color: #1b264f;
 }
+
+body section#user-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-size: x-large;
+}
+
+section#signup .message {
+    font-size: 20px;
+}
