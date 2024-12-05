@@ -8,7 +8,7 @@ require_once(__DIR__ . '/variables.php');
 <?php
 
 // Check if the user is authenticated
-if (!isset($_SESSION['auth']) || $_SESSION['auth'] === true) {
+if (!$_SESSION['auth']) {
     // If not authenticated, redirect to login.php
     header("Location: login.php");
     exit;

@@ -6,7 +6,7 @@ require_once(__DIR__ . '/variables.php');
 
 
 // Check if the user is authenticated
-if (!isset($_SESSION['auth']) || $_SESSION['auth'] === true) {
+if (!$_SESSION['auth']) {
     // Redirect to login.php with the current page as the redirect parameter
     $currentPage = urlencode($_SERVER['REQUEST_URI']); // Encodes the current URL
     header("Location: login.php?redirect=" . $currentPage);

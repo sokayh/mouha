@@ -1,51 +1,44 @@
 <?php
-session_start();
-require_once(__DIR__ . '/config/mysql.php');
-require_once(__DIR__ . '/databaseconnect.php');
-require_once(__DIR__ . '/variables.php');
+require_once(__DIR__ . '/config/mysql.php'); // Assuming this contains DB settings like host, user, pass
+require_once(__DIR__ . '/databaseconnect.php'); // Assuming this creates a $conn PDO object
+require_once(__DIR__ . '/variables.php'); // Any custom variables you need
 
-$error = "";
-$success = "";
-
-// Check if the form is submitted
+// Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Retrieve and sanitize form data
+    $nom = htmlspecialchars(trim($_POST['nom']));
+    $prenom = htmlspecialchars(trim($_POST['prenom']));
     $login = htmlspecialchars(trim($_POST['login']));
     $password = htmlspecialchars(trim($_POST['password']));
 
-    if (empty($login) || empty($password)) {
-        $error = "Veuillez remplir tous les champs.";
+    // Validation (basic example)
+    if (empty($nom) || empty($prenom) || empty($login) || empty($password)) {
+        $error = "Tous les champs doivent être remplis.";
+    } elseif (strlen($password) < 6) {
+        $error = "Le mot de passe doit contenir au moins 6 caractères.";
     } else {
+        // Hash the password for security
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
         try {
-            $sql = "SELECT * FROM users WHERE login = :login";
+            // Prepare SQL statement
+            $sql = "INSERT INTO users (nom, prenom, login, mdp) VALUES (:nom, :prenom, :login, :password)";
             $stmt = $mysqlClient->prepare($sql);
+
+            // Bind parameters
+            $stmt->bindParam(':nom', $nom);
+            $stmt->bindParam(':prenom', $prenom);
             $stmt->bindParam(':login', $login);
-            $stmt->execute();
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            $stmt->bindParam(':password', $hashedPassword);
 
-            if ($user) {
-                if (password_verify($password, $user['mdp'])) {
-                    // Successful login
-                    $_SESSION['auth'] = true;
-                    $_SESSION['login'] = $user['login'];
-                    $_SESSION['prenom'] = $user['prenom'];
-                    $_SESSION['user_id'] = $user['id'];
-
-                    // Check if a redirect URL was provided
-                    if (isset($_GET['redirect'])) {
-                        $redirect = urldecode($_GET['redirect']); // Decode the target URL
-                        header("Location: " . $redirect); // Redirect to the original page
-                    } else {
-                        // Default redirect to index.php
-                        header("Location: index.php");
-                    }
-                    exit;
-                } else {
-                    $error = "Mot de passe incorrect.";
-                }
+            // Execute the query
+            if ($stmt->execute()) {
+                $success = "Inscription réussie ! Vous pouvez maintenant vous connecter."; 
             } else {
-                $error = "Utilisateur non trouvé.";
+                $error = "Une erreur est survenue lors de l'inscription. Veuillez réessayer.";
             }
         } catch (PDOException $e) {
+            // Catch any database errors
             $error = "Erreur de base de données : " . $e->getMessage();
         }
     }
