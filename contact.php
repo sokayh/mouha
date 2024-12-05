@@ -1,6 +1,20 @@
+<?php
+session_start();
+require_once(__DIR__ . '/config/mysql.php');
+require_once(__DIR__ . '/databaseconnect.php');
+require_once(__DIR__ . '/variables.php');
+
+
+// Check if the user is authenticated
+if (!isset($_SESSION['auth']) || $_SESSION['auth'] === true) {
+    // Redirect to login.php with the current page as the redirect parameter
+    $currentPage = urlencode($_SERVER['REQUEST_URI']); // Encodes the current URL
+    header("Location: login.php?redirect=" . $currentPage);
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +24,14 @@
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">Moûha <span id="utahmer">Ötahmer</span></a>
+        <a href="index.php" class="logo">Moûha <span id="utahmer">Ötahmer</span></a>
         <button class="Menu" onclick="toggleMenu()"><i class="fa-solid fa-bars" style="font-size: 40px;"></i></button>
         <nav class="nav">
-            <a href="index.html" > Home</a>
-            <a href="index.html#skills" >Skills</a>
-            <a id="educ_navbar" href="index.html#education">Education</a>
-            <a href="index.html#projets" >Projet</a>
-            <a href="contact.html" class="active" >Contact</a> 
+            <a href="index.php" > Home</a>
+            <a href="index.php#skills" >Skills</a>
+            <a id="educ_navbar" href="index.php#education">Education</a>
+            <a href="index.php#projets" >Projet</a>
+            <a href="contact.php" class="active" >Contact</a> 
         </nav>
     </header>
     <section id="projet-detail">
