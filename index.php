@@ -2,6 +2,18 @@
 require_once(__DIR__ . '/config/mysql.php');
 require_once(__DIR__ . '/databaseconnect.php');
 require_once(__DIR__ . '/variables.php');
+session_start()
+?>
+<?php
+
+// Check if the user is authenticated
+if (!isset($_SESSION['auth']) || $_SESSION['auth'] !== true) {
+    // If not authenticated, redirect to login.php
+    header("Location: login.php");
+    exit;
+}
+
+// If authenticated, the user can access the page
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +35,13 @@ require_once(__DIR__ . '/variables.php');
             <a id="educ_navbar" href="#education" >Education</a>
             <a id="proj_navbar" href="#projets" >Projet</a>
             <a id="cont_navbar" href="contact.php" >Contact</a> 
+            <a id="cont_navbar" href="login.php" >Login</a>
         </nav>
     </header>
+    <?php 
+    $_SESSION["auth"] = "user";
+    echo "Accessed as user"
+    ?>
     <section class="home" id="home">
         <div class="home-img">
             <img src="assets/images/main.jpg" alt="">

@@ -477,6 +477,10 @@ section{
     padding-top: 3px;
 }
 
+#auth{ 
+    align-items: center;
+}
+
 /*Responsive*/
 
 @media (max-width: 1270px){
@@ -664,3 +668,6 @@ section{
         padding: 15px 45px;
     }
 }
+
+/* SIGNUP */
+

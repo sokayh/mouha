@@ -20,9 +20,19 @@ CREATE TABLE IF NOT EXISTS `projects` (
     PRIMARY KEY (`project_id`) 
 );
 
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+    `id` int AUTO_INCREMENT PRIMARY KEY,
+    `nom` varchar(30) NOT NULL,
+    `prenom` varchar(30) NOT NULL,
+    `login`varchar(50) NOT NULL,
+    `mdp` varchar(255) NOT NULL
+);
+
 
 -- Removing Old Data
 DELETE FROM `projects`;
+DELETE FROM `users`;
 
 -- Data Insertion
 
@@ -33,4 +43,3 @@ VALUES
 ('MyFitPlanner', "MyFitPlanner est un planificateur de fitness interactif permettant aux utilisateurs de créer des programmes d'entraînement personnalisés et de suivre leur progression quotidienne. L'application aide les utilisateurs à atteindre leurs objectifs de fitness de manière structurée et motivante, en offrant une expérience conviviale et complète.", 'assets/images/projet3.jpg', 'projet3.html', 'Fitness', '2024-03-01', 'Flutter, Firebase', 3),
 ('CodeSync', "CodeSync est un outil collaboratif pour développeurs permettant de travailler sur du code en temps réel, de gérer des versions et de discuter directement dans l’éditeur. L'application facilite la collaboration entre développeurs à distance et optimise le processus de développement en équipe.", 'assets/images/projet4.jpg', 'projet4.html', 'Collaboration', '2024-04-01', 'Vue.js, Laravel, WebSocket', 6),
 ('EventSphere', "EventSphere est une plateforme de gestion d'événements conçue pour les particuliers et les entreprises, intégrant des fonctionnalités de billetterie, de réservation et de diffusion en direct. L'application simplifie l'organisation et la participation aux événements tout en offrant une expérience utilisateur fluide et efficace.", 'assets/images/projet5.jpg', 'projet5.html', 'Events', '2024-05-01', 'Django, PostgreSQL', 8);
-
