@@ -1,19 +1,18 @@
 <?php
+session_start();
 require_once(__DIR__ . '/config/mysql.php');
 require_once(__DIR__ . '/databaseconnect.php');
 require_once(__DIR__ . '/variables.php');
-session_start()
+
 ?>
 <?php
 
 // Check if the user is authenticated
-if (!isset($_SESSION['auth']) || $_SESSION['auth'] !== true) {
+if (!isset($_SESSION['auth']) || $_SESSION['auth'] === true) {
     // If not authenticated, redirect to login.php
     header("Location: login.php");
     exit;
 }
-
-// If authenticated, the user can access the page
 ?>
 <!DOCTYPE html>
 <html lang="en">

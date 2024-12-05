@@ -1,7 +1,17 @@
 <?php
+session_start();
 require_once(__DIR__ . '/config/mysql.php');
 require_once(__DIR__ . '/databaseconnect.php');
 require_once(__DIR__ . '/variables.php');
+
+
+// Check if the user is authenticated
+if (!isset($_SESSION['auth']) || $_SESSION['auth'] === true) {
+    // Redirect to login.php with the current page as the redirect parameter
+    $currentPage = urlencode($_SERVER['REQUEST_URI']); // Encodes the current URL
+    header("Location: login.php?redirect=" . $currentPage);
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +37,6 @@ require_once(__DIR__ . '/variables.php');
     </header>
     <section id="projet-detail">
         <div class="wrapper">
-        <?php echo "img src="; ?>
             <h1 class="heading"><?php echo $projects[0]['name']; ?></h1>
             <p class="project-description"><?php echo $projects[0]['description']; ?></p>
 

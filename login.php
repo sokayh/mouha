@@ -1,5 +1,5 @@
 <?php
-session_start(); // Start the session at the beginning of the script
+// session_start(); // Start the session at the beginning of the script
 require_once(__DIR__ . '/config/mysql.php'); // Database configuration
 require_once(__DIR__ . '/databaseconnect.php'); // PDO connection to database
 require_once(__DIR__ . '/variables.php'); // Optional: additional variables
@@ -34,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($user) {
                 // Verify the password
                 if (password_verify($password, $user['mdp'])) {
+                    session_start();
                     // Success: Store user data in session variables
                     $_SESSION['auth'] = true; // Mark the user as authenticated
                     $_SESSION['login'] = $user['login']; // Store login in session
@@ -65,9 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="styles/style.css">
     <title>Login</title>
 </head>
-<body>
-    <h1>Login</h1>
-
+<body class="cacaca">
     <!-- Display error or success messages -->
     <?php if (!empty($error)): ?>
         <div style="color: red;"><?= $error ?></div>
@@ -78,7 +77,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php endif; ?>
 
     <!-- Login Form -->
-    <form action="" method="POST">
+<section id="signup">
+<h1 id="title1" class="auth">Log In</h1>
+    <form class="auth1" action="" method="POST">
         <div>
             <label for="login" class="form-label">Username</label>
             <input type="text" class="form-control" name="login" id="login" placeholder="momo" required>
@@ -88,7 +89,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" class="form-control" name="password" id="password" placeholder="momo123" required>
         </div>
         <button type="submit" class="btn">Submit</button>
+        <a id="redirect1" class="home" href="signup.php">I don't have an account</a>
     </form>
-    <a class="home" href="signup.php">I don't have an account</a>
+    
+</section>
 </body>
 </html>
