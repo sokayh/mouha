@@ -41,15 +41,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             // Check if user exists
             if ($user) {
-                // Verify the password
-                if (password_verify($password, $user['mdp'])) {
+                $hashedInputPassword = hashPasswordWithPython($password);
+                if ($hashedInputPassword === $user['mdp']) {
                     // Success: Store user data in session variables
                     $_SESSION['auth'] = true; // Mark the user as authenticated
                     $_SESSION['login'] = $user['login']; // Store login in session
                     $_SESSION['prenom'] = $user['prenom']; // Store the first name in session
                     $_SESSION['nom'] = $user['nom']; // Store the last name in session
                     $_SESSION['user_id'] = $user['id']; // Store user ID in session
-                    $_SESSION['password'] = $hashedPasswo; // Store the password in session for leak check
+                    $_SESSION['password'] = $hashedPassword; // Store the password in session for leak check
 
 
                     // Redirect to the same page to show user details
